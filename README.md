@@ -83,3 +83,6 @@ pip install -r requirements.txt
 
 # 3. Run the notebook
 jupyter notebook notebooks/MedicalAppointment.ipynb
+
+## Let's Connect
+**Built by Eyal Yadai** - www.linkedin.com/in/eyal-yadai-13757832b
