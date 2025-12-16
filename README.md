@@ -1,51 +1,79 @@
 # Medical Appointment No-Show Prediction
 
-Hello and Welcome!
-I'm Eyal. This is an advanced Data Science project focused on predicting whether patients will show up for their medical appointments.
+## 📌 Project Overview
+End-to-end data science project focused on predicting whether patients will miss their scheduled medical appointments ("No-shows").
 
-## The Business Problem
-In healthcare, "No-shows" (patients who miss appointments without cancelling) are a major issue. They cause financial losses and waste doctors' valuable time.
-The Challenge: The dataset is highly imbalanced - about 80% of patients show up, making it hard for standard models to detect the 20% who don't.
-The Goal: Build a model that prioritizes **Recall** identifying as many "No-shows" as possible to allow proactive intervention (e.g., reminder calls).
+Missed appointments create operational inefficiencies and financial losses for healthcare providers. This project aims to identify high-risk no-show patients in advance, enabling proactive interventions such as reminder calls or schedule optimization.
 
-##Methodology & Technical Approach
-I built a robust pipeline to handle the class imbalance and large dataset (~110k rows):
-1.  **Feature Engineering:**
-    * Created `WaitingDays`: The gap between scheduling and the appointment (Crucial predictor).
-    * Extracted `DayOfWeek`: To analyze if specific days have higher dropout rates.
-    * **Data Cleaning:** Fixed logical errors in the dataset (e.g., negative ages, negative waiting times).
-2.  **Handling Imbalance:** Used **SMOTE (Synthetic Minority Over-sampling Technique)** to generate synthetic examples of "No-shows", preventing the model from being biased toward the majority class.
-3.  **Model Selection:** Switched from a single Decision Tree to a **Random Forest Classifier** (an ensemble of 100 trees) for better stability and generalization.
+---
 
-## Key Findings
-Time Matters: The longer the wait between scheduling and the appointment, the higher the chance of a no-show.
-The "Imbalance Trap": A naive model achieves ~80% accuracy by simply guessing "Show" for everyone, but it fails to catch a single no-show. My approach sacrificed some accuracy to gain actual predictive power.
+## 🎯 Business Problem
+In the healthcare domain, appointment no-shows are a persistent challenge.  
+The dataset is **highly imbalanced**, with approximately **80% show-ups** and **20% no-shows**.
 
-## Results
-Since the business goal is to catch missing patients, I optimized for **Recall** rather than just Accuracy.
+A naive model that predicts "Show" for every patient achieves high accuracy but provides **no real business value**.  
+Therefore, the primary goal of this project is to **maximize Recall**, ensuring that as many no-show cases as possible are correctly identified.
+
+---
+
+## 🧪 Dataset
+- Real-world medical appointment dataset
+- ~110,000 appointment records
+- Target variable: Appointment attendance (Show / No-show)
+- Includes demographic, scheduling, and historical features
+
+---
+
+## 🛠️ Methodology & Technical Approach
+
+### Feature Engineering
+- **WaitingDays**: Time gap between scheduling and appointment date (key predictive feature)
+- **DayOfWeek**: Extracted to analyze behavioral patterns by weekday
+- **Data Cleaning**:
+  - Removed logically invalid values (e.g., negative ages, negative waiting times)
+
+### Handling Class Imbalance
+- Applied **SMOTE (Synthetic Minority Over-sampling Technique)** to address severe class imbalance
+- All preprocessing steps, including SMOTE, were applied **only on the training set** using a pipeline to prevent data leakage
+
+### Modeling
+- Transitioned from a single Decision Tree to a **Random Forest Classifier**
+- Ensemble approach (100 trees) provided improved stability and generalization
+- Model selection driven by business-oriented evaluation metrics
+
+---
+
+## 📊 Evaluation & Results
+Given the business objective, the model was optimized for **Recall** rather than raw accuracy.
 
 | Metric | Score | Business Interpretation |
-|--------|-------|-------------------------|
-| Recall (Sensitivity) | ~76.1% | The model successfully identifies the majority of patients who would have missed their appointment. |
-| Accuracy | ~62% | Lower than baseline, but reflects a model that actually takes risks to find the minority class. |
-| F1 Score | ~0.44 | Represents the trade-off between precision and recall. |
+|------|------|-------------------------|
+| Recall (Sensitivity) | ~76% | Successfully identifies the majority of patients likely to miss their appointment |
+| Accuracy | ~62% | Lower than baseline but reflects meaningful risk detection |
+| F1 Score | ~0.44 | Balances recall-focused detection with prediction reliability |
 
-## 🛠️ Tech Stack
-Python: Core language.
-Scikit-Learn: Random Forest, Metrics.
-Imbalanced-Learn: SMOTE pipeline.
-Pandas & NumPy: Advanced data manipulation.
-Matplotlib & Seaborn: Data Visualization.
+A confusion matrix was used to analyze trade-offs between false positives and false negatives, prioritizing recall due to the high cost of missed appointments.
 
-1. Clone this repository:
-   ```bash
-   git clone (https://github.com/Eyalyadai/Medical_Appointment_ML.git)
+---
 
-2.  Install requirements:
-   ```bash
-   pip install -r requirements.txt
+## 🔍 Key Insights
+- **Waiting time is the strongest predictor**: longer delays significantly increase no-show probability
+- **Accuracy alone is misleading** in imbalanced healthcare datasets
+- Business-aligned metrics are essential for actionable machine learning solutions
 
-3. Run the Notebook:
-  Open notebooks/MedicalAppointment.ipynb in Jupyter Notebook.
+---
 
-**Created by Eyal Yadai. If you have any questions or feedback, feel free to reach out!**
+## 🧰 Tech Stack
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- Imbalanced-learn (SMOTE)
+- Matplotlib, Seaborn
+- Jupyter Notebook
+
+---
+
+## 🚀 How to Run
+```bash
+git clone https://github.com/Eyalyadai/Medical_Appointment_ML.git
+pip install -r requirements.txt
