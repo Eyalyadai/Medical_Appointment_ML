@@ -73,6 +73,12 @@ A confusion matrix was used to analyze trade-offs between false positives and fa
 
 ---
 
+## Let's Connect
+**Built by Eyal Yadai**
+(www.linkedin.com/in/eyal-yadai-13757832b)
+
+---
+
 ## 🚀 How to Run
 ```bash
 # 1. Clone the repository
@@ -83,6 +89,3 @@ pip install -r requirements.txt
 
 # 3. Run the notebook
 jupyter notebook notebooks/MedicalAppointment.ipynb
-
-## Let's Connect
-**Built by Eyal Yadai** - www.linkedin.com/in/eyal-yadai-13757832b
