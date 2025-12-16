@@ -47,7 +47,7 @@ Therefore, the primary goal of this project is to **maximize Recall**, ensuring 
 Given the business objective, the model was optimized for **Recall** rather than raw accuracy.
 
 | Metric | Score | Business Interpretation |
-|------|------|-------------------------|
+|--------|-------|-------------------------|
 | Recall (Sensitivity) | ~76% | Successfully identifies the majority of patients likely to miss their appointment |
 | Accuracy | ~62% | Lower than baseline but reflects meaningful risk detection |
 | F1 Score | ~0.44 | Balances recall-focused detection with prediction reliability |
@@ -76,7 +76,7 @@ A confusion matrix was used to analyze trade-offs between false positives and fa
 ## 🚀 How to Run
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Eyalyadai/Medical_Appointment_ML.git
+git clone [https://github.com/Eyalyadai/Medical_Appointment_ML.git](https://github.com/Eyalyadai/Medical_Appointment_ML.git)
 
 # 2. Install requirements
 pip install -r requirements.txt
