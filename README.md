@@ -1,4 +1,4 @@
-# Medical Appointment No-Show Prediction
+# Medical Appointment No-Show Prediction 🏥
 
 ## 📌 Project Overview
 End-to-end data science project focused on predicting whether patients will miss their scheduled medical appointments ("No-shows").
@@ -8,10 +8,10 @@ Missed appointments create operational inefficiencies and financial losses for h
 ---
 
 ## 🎯 Business Problem
-In the healthcare domain, appointment no-shows are a persistent challenge.  
+In the healthcare domain, appointment no-shows are a persistent challenge.
 The dataset is **highly imbalanced**, with approximately **80% show-ups** and **20% no-shows**.
 
-A naive model that predicts "Show" for every patient achieves high accuracy but provides **no real business value**.  
+A naive model that predicts "Show" for every patient achieves high accuracy but provides **no real business value**.
 Therefore, the primary goal of this project is to **maximize Recall**, ensuring that as many no-show cases as possible are correctly identified.
 
 ---
@@ -75,5 +75,11 @@ A confusion matrix was used to analyze trade-offs between false positives and fa
 
 ## 🚀 How to Run
 ```bash
+# 1. Clone the repository
 git clone https://github.com/Eyalyadai/Medical_Appointment_ML.git
+
+# 2. Install requirements
 pip install -r requirements.txt
+
+# 3. Run the notebook
+jupyter notebook notebooks/MedicalAppointment.ipynb
